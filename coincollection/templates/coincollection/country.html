@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+{% load static %}
+
+		<h3>Münzen nach Ländern</h3></br>
+		<h3>{{ catdata.title }}</h3></br>
+
+{% for post in products %}
+	<article class="media content-section">
+		<div class="media-body">
+		    <div class="article-metadata">
+			    <a href="/sondermuenz/category/{{ post.id }}"  >{{ post.title }}</a></br>
+			</div>
+      
+      {% if not post.category.parent.title  %}
+			 <p>Land: {{ post.category.title }}</p>
+  {% else %}
+  <p>Land: {{ post.category.parent.title }}</p>
+        {% endif %}
+		    <p>Münzart: {{ post.coin_sort_field }}</p>
+ 			<p>Prägungsbuchstabe: {{ post.coin_choice_field }}</p>
+		    </div>
+			<img class="rounded-circle article-img" src="{{ post.image.url }}">
+		</article>
+{% endfor %}
+
+{% endblock content %}
