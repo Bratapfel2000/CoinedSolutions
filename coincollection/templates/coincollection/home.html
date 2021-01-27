@@ -32,8 +32,14 @@
     <div class="card-block">
       <h4 class="card-title"><a href="/coincollection/category/{{ post.id }}"  >{{ post.title }}</a></h4>
 
-      <p>Land: {{ post.category.parent.title }}</p>
-      <p class="card-text">Münzart: <a href="#">{{ post.coin_sort_field }}</a></p>
+      
+            {% if not post.category.parent.title  %}
+              <p>Land: {{ post.category.title }}</p>
+            {% else %}
+              <p>Land: {{ post.category.parent.title }}</p>
+            {% endif %}
+
+              <p class="card-text">Münzart: <a href="#">{{ post.coin_sort_field }}</a></p>
       <p class="card-text">Jahr: {{ post.year }}</a></p>
   </br>
     </div>
