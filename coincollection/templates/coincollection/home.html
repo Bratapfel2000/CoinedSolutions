@@ -31,15 +31,10 @@
     <img class="rounded-circle article-img" src="{{ post.image.url }}">
     <div class="card-block">
       <h4 class="card-title"><a href="/coincollection/category/{{ post.id }}"  >{{ post.title }}</a></h4>
-      {% if post.category.parent.title == "Land" %}
-       <p>Land: {{ post.category.title }}</p>
-        {% else %}
+
       <p>Land: {{ post.category.parent.title }}</p>
-        {% endif %}
       <p class="card-text">Münzart: <a href="#">{{ post.coin_sort_field }}</a></p>
-      <p class="card-text">Year: {{ post.year }}</a></p>
-      <p class="card-text">Found: {{ post.date_found }}</a></p>
-      <p class="card-text">Prägungsbuchstabe: <a href="#">{{ post.coin_choice_field }}</a></p>
+      <p class="card-text">Jahr: {{ post.year }}</a></p>
   </br>
     </div>
   </div>
