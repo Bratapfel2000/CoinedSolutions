@@ -1,0 +1,61 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+<h1>TESTa</h1>
+	
+<article class="media content-section">
+  <div class="media-body">
+    <h3>CoinTree</h3>
+      {% load mptt_tags %}
+      <ul>
+      {% recursetree category %}
+          <li>
+             <a href="/sondermuenz/products_13/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a>        
+              {% if not node.is_leaf_node %}
+                  <ul class="children">
+                     {{ children }}
+                  </ul>
+              {% endif %}
+          </li>
+      {% endrecursetree %}
+      </ul>
+  </div>
+</article>
+
+<div class="row">
+
+{% for post in all_products %}
+    <div class="col-md-4">
+
+  <div class="card">
+    <img class="rounded-circle article-img" src="{{ post.image.url }}">
+    <div class="card-block">
+      <h4 class="card-title"><a href="/coincollection/category/{{ post.id }}"  >{{ post.title }}</a></h4>
+      {% if post.category.parent.title == "Land" %}
+       <p>Land: {{ post.category.title }}</p>
+        {% else %}
+      <p>Land: {{ post.category.parent.title }}</p>
+        {% endif %}
+      <p class="card-text">Münzart: <a href="#">{{ post.coin_sort_field }}</a></p>
+      <p class="card-text">Year: {{ post.year }}</a></p>
+      <p class="card-text">Found: {{ post.date_found }}</a></p>
+      <p class="card-text">Prägungsbuchstabe: <a href="#">{{ post.coin_choice_field }}</a></p>
+  </br>
+    </div>
+  </div>
+</br>
+
+
+    </div>
+
+        <!-- if last column in row -->
+        {% if forloop.counter|divisibleby:"3" and not forloop.last %}
+        </div><div class="row">
+        {% endif %}
+
+    {% endfor %}
+
+</div>
+
+{% endblock content %}
+
