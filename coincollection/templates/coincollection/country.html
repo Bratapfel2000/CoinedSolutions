@@ -10,7 +10,8 @@
 	<article class="media content-section">
 		<div class="media-body">
 		    <div class="article-metadata">
-			    <a href="/sondermuenz/category/{{ post.id }}"  >{{ post.title }}</a></br>
+			    <a href="/sondermuenz/category/{{ post.category.slug }}/{{ post.id }}"  >{{ post.title }}</a></br>
+
 			</div>
       
       {% if not post.category.parent.title  %}
