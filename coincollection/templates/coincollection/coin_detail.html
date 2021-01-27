@@ -3,15 +3,20 @@
 <h1>{{ product.title   }}</h1>
 
 </br>
-    <div>
-        {% if product.category.parent.title == "Land" %}
-			 <p>Land: {{ product.category.title }}</p>
-        {% else %}
+</br>
 
-			<p>Land: {{ product.category.parent.title }} ({{ product.category.title }})</p>
+ {% if not product.category.parent.title %}
 
-        {% endif %}
-    </div>
+ <p>Land: {{ product.category.title }}</p>
+
+ {% else %}
+
+<p>Land: {{ product.category.parent.title  }}</p>
+ <p>Bundesland: {{ product.category.title }}</p>
+
+  {% endif %}
+
+
 
  <p>Beschreibung: {{ product.description  }}</p>
 
