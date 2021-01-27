@@ -30,8 +30,8 @@
   <div class="card">
     <img class="rounded-circle article-img" src="{{ post.image.url }}">
     <div class="card-block">
-      <h4 class="card-title"><a href="/coincollection/category/{{ post.id }}"  >{{ post.title }}</a></h4>
-
+      <h4 class="card-title"><a href="/category/{{ post.category.slug }}/{{ post.id }}"  >{{ post.title }}</a></h4>
+  
       
             {% if not post.category.parent.title  %}
               <p>Land: {{ post.category.title }}</p>

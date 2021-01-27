@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<h1>{{ product.title   }}</h1>
+
+</br>
+    <div>
+        {% if product.category.parent.title == "Land" %}
+			 <p>Land: {{ product.category.title }}</p>
+        {% else %}
+
+			<p>Land: {{ product.category.parent.title }} ({{ product.category.title }})</p>
+
+        {% endif %}
+    </div>
+
+ <p>Beschreibung: {{ product.description  }}</p>
+
+ <p>Prägungsbuchstabe: {{ product.coin_choice_field }}</p>
+ <p>Münzart: {{ product.coin_sort_field  }}</p>
+ <p>Jahr: {{ product.year  }}</p>
+ <p>Erhalten am: {{ product.date_found  }}</p>
+<img  class="img-fluid"  src="{{ product.image.url }}">
+ 
+{% endblock content %}

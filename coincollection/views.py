@@ -26,3 +26,10 @@ def country(request,id,slug):
              'catdata':catdata,
              'slug': slug}
     return render(request,'coincollection/country.html',context)
+
+def coin_detail(request,id,slug):
+    category = Category.objects.all()
+    product = Product.objects.get(pk=id)
+    context = {'product': product,'category': category,
+               }
+    return render(request,'coincollection/coin_detail.html',context)
