@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['coinedsolutions.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    #'sondermuenz.apps.SondermuenzConfig',
+    'coincollection.apps.CoincollectionConfig',
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
