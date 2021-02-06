@@ -43,6 +43,8 @@ class Product(models.Model):
 	C = 'C'
 	D = 'D'
 	E = 'E'
+	M = 'M'
+	R = 'R'
 	LETTERS = [
 		(KP, 'KP'),		
 		(A, 'A'),
@@ -50,6 +52,8 @@ class Product(models.Model):
 		(C, 'C'),
 		(D, 'D'),
 		(E, 'E'),
+		(M, 'M'),
+		(R, 'R'),
 	]
 	coin_choice_field = models.CharField(
 		max_length=2,
