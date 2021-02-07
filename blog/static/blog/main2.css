@@ -32,7 +32,7 @@ ul {
   background: #ffffff;
   padding: 10px 20px;
   border: 1px solid #dddddd;
-  border-radius: 3px;
+  border-radius: 13px;
   margin-bottom: 20px;
 }
 
@@ -84,7 +84,17 @@ a.article-title:hover {
 }
 
 .navbar-stick {
-  padding: 0px 175px 6px 16px;
+  padding: 0px 50px 6px 60px;
   position: fixed;
   right: 0;
 }
+
+@media screen and (max-width: 780px) {
+  .navbar-stick {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 20px 20px 20px 20px;
+  }
+}
+
