@@ -1,91 +1,33 @@
-{% extends "blog/base.html" %}
+{% extends "coincollection/base.html" %}
 {% block content %}
 
-<article class="media content-section">
-  <div class="media-body">
-    <h1>Coinfilter</h1>
-        <form method="get">
-          {{ myFilter.form }}
-          <button class="btn btn-primary" type="submit">search</button>
-        </form>
 
-<article class="media content-section">
-<div class="media-body">
-{% for post in order %}
-  <article class="media content-section">
-    <div class="media-body">
-        <div class="article-metadata">
-          <a href="/category/{{ post.category.slug }}/{{ post.id }}"  >{{ post.title }}</a>
-      </div>
-
-            {% if not post.category.parent.title  %}
-              <p>Land: {{ post.category.title }}</p>
-            {% else %}
-              <p>Land: {{ post.category.parent.title }}</p>
-            {% endif %}
-
-        <p>Münzart: {{ post.coin_sort_field }}</p>
-      <p>Prägungsbuchstabe: {{ post.coin_choice_field }}</p>
-        </div>
-      <img class="rounded-circle article-img" src="{{ post.image.url }}">
-    </article>
-{% endfor %}
-</div>
-</article>
-  </div>
-</article>
-
-<article class="media content-section">
-  <div class="media-body">
-    <h3>Länderverzeichnis</h3>
-      {% load mptt_tags %}
-      <ul>
-      {% recursetree category %}
-          <li>
-             <a href="/country/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a>        
-              {% if not node.is_leaf_node %}
-                  <ul class="children">
-                     {{ children }}
-                  </ul>
-              {% endif %}
-          </li>
-      {% endrecursetree %}
-      </ul>
-  </div>
-</article>
 
 <div class="row">
-{% for post in all_products %}
-    <div class="col-md-4">
+      {% for post in all_products %}
+            <div class="col-md-4">
+                    <div class="card">
+                       <div class="card-body">
+                            <img class="rounded-circle card-img-top" src="{{ post.image.url }}"></br></br>
+                                 
+                                        <h4 class="card-title"><a href="/category/{{ post.category.slug }}/{{ post.id }}"  >{{ post.title }}</a></h4>
+                                        {% if not post.category.parent.title  %}
+                                        <p>{{ post.category.title }},  {{ post.year }}. <a href="#">{{ post.coin_sort_field }}</p>
+                                        {% else %}
+                                        <p>{{ post.category.parent.title }},  {{ post.year }}. <a href="#">{{ post.coin_sort_field }}</a></p>
+                                        {% endif %}
+                                  </div>
+                    </div></br>
 
-  <div class="card">
-    <img class="rounded-circle article-img" src="{{ post.image.url }}">
-    <div class="card-block">
-      <h4 class="card-title"><a href="/category/{{ post.category.slug }}/{{ post.id }}"  >{{ post.title }}</a></h4>
-  
-      
-            {% if not post.category.parent.title  %}
-              <p>Land: {{ post.category.title }}</p>
-            {% else %}
-              <p>Land: {{ post.category.parent.title }}</p>
+            </div>
+            <!-- if last column in row -->
+            {% if forloop.counter|divisibleby:"3" and not forloop.last %}
             {% endif %}
-
-              <p class="card-text">Münzart: <a href="#">{{ post.coin_sort_field }}</a></p>
-      <p class="card-text">Jahr: {{ post.year }}</a></p>
-  </br>
-    </div>
-  </div>
-</br>
-
-    </div>
-        <!-- if last column in row -->
-        {% if forloop.counter|divisibleby:"3" and not forloop.last %}
-        </div><div class="row">
-        {% endif %}
-
-    {% endfor %}
-
+      {% endfor %}
 </div>
+
+
+
 
 {% endblock content %}
 

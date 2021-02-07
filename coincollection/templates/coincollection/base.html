@@ -72,22 +72,49 @@
           {% block content %}{% endblock %}
 	</div>
 
-	<div class="col-md-4">
-	  <div class="content-section">
-	    <h3>Sidebar</h3>
-	    <p class='text-muted'>looks like a sidebar with links
-	      <ul class="list-group">
-	      	  <a class="nav-item nav-link" href="{% url 'coin-filter' %}">Coinfilter</a>
-	          <a class="nav-item nav-link" href="https://cannedsolutions.herokuapp.com">CannedSolutions</a>
-	          <a class="nav-item nav-link" href="https://bratapfel2000.de">Bratapfel2000</a>
+		<div class="col-md-4">
 
-	      </ul>
-	    </p>
-	  </div>
+			<div class="content-section">
+				<h3>Sidebar</h3>
+				<p class='text-muted'>looks like a sidebar with links
+				<ul class="list-group">
+				<a class="nav-item nav-link" href="{% url 'coin-filter' %}">Coinfilter</a>
 
+				</ul>
+				</p>
+			</div>
 
 
-	  </div>
+			<div class="content-section">
+				<h3>Länderverzeichnis</h3>
+				{% load mptt_tags %}
+				<ul>
+				{% recursetree category %}
+				<li>
+				<a href="/country/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a>        
+				{% if not node.is_leaf_node %}
+				<ul class="children">
+				{{ children }}
+				</ul>
+				{% endif %}
+				</li>
+				{% endrecursetree %}
+				</ul>
+			</div>
+
+			<div class="content-section">
+				<h3>Links</h3>
+				<ul class="list-group">
+				<a class="nav-item nav-link" href="https://cannedsolutions.herokuapp.com">CannedSolutions</a>
+				<a class="nav-item nav-link" href="https://bratapfel2000.de">Bratapfel2000</a>
+				</ul>
+				</p>
+			</div>
+
+
+
+		</div>
+
 
 	</div>
 	</div>
