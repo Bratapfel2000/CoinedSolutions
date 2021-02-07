@@ -82,3 +82,9 @@ a.article-title:hover {
 .account-heading {
   font-size: 2.5rem;
 }
+
+.navbar-stick {
+  padding: 0px 175px 6px 16px;
+  position: fixed;
+  right: 0;
+}
