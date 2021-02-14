@@ -3,37 +3,40 @@
 
 {% load static %}
 
-	<article class="media content-section">
-		<div class="media-body">
-<h1>Zweieurosondermünztabelle</h1>
-		    </div>
-	</article>
+<article class="media content-section">
+	<div class="media-body">
+		<h1>Zweieurosondermünztabelle</h1>
+	</div>
+</article>
 
 <table border = "1" cellpadding = "5" cellspacing = "5">
-    <th colspan="2">Land</th>
-    <th>Titel</th>
-    <th>Münzart</th>
-    <th>Jahr</th>
- 	<th>Buchstabe</th>    
- 	<th>Bild</th>
-    {% for i in all_products%}
-    
-    <tr>
-    	{% if not i.category.parent.title %}
-        <td>{{i.category.title}}</td>
-        <td>{{i.category.parent.title}}</td>
-        {% else %}
-        <td>{{i.category.parent.title}}</td>
-        <td>{{i.category.title}}</td>
-        {% endif %}
+	<th>#</th>
+	<th colspan="2">Land</th>
+	<th>Titel</th>
+	<th>Münzart</th>
+	<th>Jahr</th>
+	<th>Buchstabe</th>    
+	<th>Bild</th>
 
-        <td>{{i.title}}</td>
-        <td>{{ i.coin_sort_field  }}</td>
- 		<td>{{ i.year  }}</td>
- 		<td>{{ i.coin_choice_field  }}</td>
-        <td><img class="rounded-circle article-img" style="height:50px;width:50px" src="{{ i.image.url }}"></td>
-    </tr>
-    {% endfor %}
+	{% for i in all_products%}
+		<tr>
+		<td><a href="/category/{{ i.category.slug }}/{{ i.id }}"  >{{i.id}}</a></td>
+		{% if not i.category.parent.title %}
+			<td>{{i.category.title}}</td>
+			<td>{{i.category.parent.title}}</td>
+		{% else %}
+			<td>{{i.category.parent.title}}</td>
+			<td>{{i.category.title}}</td>
+		{% endif %}
+		<td>{{i.title}}</td>
+		<td>{{ i.coin_sort_field  }}</td>
+		<td>{{ i.year  }}</td>
+		<td>{{ i.coin_choice_field  }}</td>
+		<td><a href="/category/{{ i.category.slug }}/{{ i.id }}"  ><img class="rounded-circle article-img" style="height:50px;width:50px" src="{{ i.image.url }}"></a></td>
+		</tr>
+	{% endfor %}
 </table>
+
+</br></br>
 
 {% endblock content %}
