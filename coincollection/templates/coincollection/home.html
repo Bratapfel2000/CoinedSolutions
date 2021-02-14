@@ -8,7 +8,7 @@
             <div class="col-md-4">
                     <div class="card">
                        <div class="card-body">
-                            <img class="rounded-circle card-img-top" src="{{ post.image.url }}"></br></br>
+                            <a href="/category/{{ post.category.slug }}/{{ post.id }}"  ><img class="rounded-circle card-img-top" src="{{ post.image.url }}"></a></br></br>
                                  
                                         <h4 class="card-title"><a href="/category/{{ post.category.slug }}/{{ post.id }}"  >{{ post.title }}</a></h4>
                                         {% if not post.category.parent.title  %}
