@@ -56,3 +56,13 @@ def coin_filter(request):
     order = myFilter.qs
     context={'category':category, 'all_products':all_products, 'order':order, 'myFilter':myFilter}
     return render(request,'coincollection/coinfilter.html',context)
+
+def coin_table(request):
+    category = Category.objects.all()
+    all_products = Product.objects.all()
+    page = "somu-overview"
+    order = Product.objects.all()
+    myFilter = ProductFilter(request.GET, queryset=order)
+    order = myFilter.qs
+    context={'category':category, 'all_products':all_products, 'order':order, 'myFilter':myFilter}
+    return render(request,'coincollection/listed.html',context)

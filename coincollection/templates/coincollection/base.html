@@ -13,7 +13,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
 
 
-    <link rel="stylesheet" type="text/css" href="{% static 'blog/main2.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'coincollection/main3.css' %}">
 
 	{% if title %}
 		<title>CoinedSolutions - {{ title }}</title>	
@@ -79,6 +79,7 @@
 				<p class='text-muted'>some sidebar with links
 				<ul class="list-group">
 				<a class="nav-item nav-link" href="{% url 'coin-filter' %}">Coinfilter</a>
+				<a class="nav-item nav-link" href="{% url 'coin-table' %}">Cointable</a>
 
 				</ul>
 				</p>
