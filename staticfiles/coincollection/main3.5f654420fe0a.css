@@ -30,6 +30,7 @@ ul {
 
 .button {
   border: none;
+  color: white;
   padding: 16px 32px;
   text-align: center;
   text-decoration: none;
@@ -47,15 +48,10 @@ ul {
 }
 
 .button2:hover {
-  background-color: white;
-  color: #003399;
-}
-.content-section {
-  background: #ffffff;
-  padding: 10px 20px;
-  border: 1px solid #dddddd;
-  border-radius: 13px;
-  margin-bottom: 20px;
+  background-color: #FFCC00;
+  color: black;
+  border: 2px solid #003399;
+
 }
 .content-section {
   background: #ffffff;

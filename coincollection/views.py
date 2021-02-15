@@ -50,7 +50,6 @@ def coin_detail(request,id,slug):
 def coin_filter(request):
     category = Category.objects.all()
     all_products = Product.objects.all()
-    page = "somu-overview"
     order = Product.objects.all()
     myFilter = ProductFilter(request.GET, queryset=order)
     order = myFilter.qs
@@ -60,9 +59,17 @@ def coin_filter(request):
 def coin_table(request):
     category = Category.objects.all()
     all_products = Product.objects.all()
-    page = "somu-overview"
     order = Product.objects.all()
     myFilter = ProductFilter(request.GET, queryset=order)
     order = myFilter.qs
     context={'category':category, 'all_products':all_products, 'order':order, 'myFilter':myFilter}
     return render(request,'coincollection/listed.html',context)
+    
+def coin_filtertable(request):
+    category = Category.objects.all()
+    all_products = Product.objects.all()
+    order = Product.objects.all()
+    myFilter = ProductFilter(request.GET, queryset=order)
+    order = myFilter.qs
+    context={'category':category, 'all_products':all_products, 'order':order, 'myFilter':myFilter}
+    return render(request,'coincollection/filtertable.html',context)
