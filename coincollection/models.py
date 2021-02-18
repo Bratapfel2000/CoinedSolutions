@@ -43,6 +43,8 @@ class Product(models.Model):
 	C = 'C'
 	D = 'D'
 	E = 'E'
+	F = 'F'
+	J = 'J'
 	M = 'M'
 	R = 'R'
 	LETTERS = [
@@ -52,6 +54,8 @@ class Product(models.Model):
 		(C, 'C'),
 		(D, 'D'),
 		(E, 'E'),
+		(F, 'F'),
+		(J, 'J'),
 		(M, 'M'),
 		(R, 'R'),
 	]
