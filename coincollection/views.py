@@ -9,7 +9,7 @@ from .filters import ProductFilter
 
 def coinhome(request):
     category = Category.objects.all()
-    all_products = Product.objects.all()
+    all_products = Product.objects.all().order_by('?')
     page = "somu-overview"
     order = Product.objects.all()
     myFilter = ProductFilter(request.GET, queryset=order)
