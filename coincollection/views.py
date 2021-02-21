@@ -73,3 +73,28 @@ def coin_filtertable(request):
     order = myFilter.qs
     context={'category':category, 'all_products':all_products, 'order':order, 'myFilter':myFilter}
     return render(request,'coincollection/filtertable.html',context)
+
+def histogram(s):
+    d = dict()
+    for c in s:
+        if c not in d:
+            d[c] = 1
+        else:
+            d[c] += 1
+    return d
+
+def coin_charts(request):
+    labels = []
+    data = []
+    all_products = Product.objects.all()
+    category = Category.objects.all()
+    product_listed = []
+    for prod in all_products:
+        product_listed.append(prod.category)
+    product_hist = histogram(product_listed)
+    for i in product_hist:
+        print(i, product_hist[i])
+        data.append(product_hist[i])
+        labels.append(i.title)
+    context={'category':category, 'all_products':all_products,'labels': labels, 'data': data}
+    return render(request, 'coincollection/coin_charts.html', context)
