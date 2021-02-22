@@ -93,7 +93,7 @@ def coin_charts(request):
         product_listed.append(prod.category)
     product_hist = histogram(product_listed)
     for i in product_hist:
-        print(i, product_hist[i])
+        #print(i, product_hist[i])
         data.append(product_hist[i])
         labels.append(i.title)
     context={'category':category, 'all_products':all_products,'labels': labels, 'data': data}
