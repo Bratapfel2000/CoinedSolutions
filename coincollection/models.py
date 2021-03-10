@@ -44,6 +44,7 @@ class Product(models.Model):
 	D = 'D'
 	E = 'E'
 	F = 'F'
+	G = 'G'
 	J = 'J'
 	M = 'M'
 	R = 'R'
@@ -55,6 +56,7 @@ class Product(models.Model):
 		(D, 'D'),
 		(E, 'E'),
 		(F, 'F'),
+		(G, 'G'),
 		(J, 'J'),
 		(M, 'M'),
 		(R, 'R'),
