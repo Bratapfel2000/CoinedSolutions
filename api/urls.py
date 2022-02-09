@@ -1,6 +1,8 @@
 from django.urls import path
+from .views import PostAPIView
 from .views import CoinProductAPIView
 
 urlpatterns = [
-	path('', CoinProductAPIView.as_view()),
+	path('blogs/', PostAPIView.as_view()),
+	path('coins/', CoinProductAPIView.as_view()),
 ]

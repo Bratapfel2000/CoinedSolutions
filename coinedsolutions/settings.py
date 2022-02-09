@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['coinedsolutions.herokuapp.com']
 
@@ -33,9 +33,11 @@ ALLOWED_HOSTS = ['coinedsolutions.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'coincollection.apps.CoincollectionConfig',
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
+    'api.apps.ApiConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -44,10 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'storages',
-    'rest_framework',
     'mptt',
-    'django_filters'
-    'api.apps.ApiConfig',
+    'django_filters',
 ]
 
 
