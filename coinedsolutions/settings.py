@@ -45,7 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'storages',
     'mptt',
-    'django_filters'
+    'django_filters',
+    'rest_framework',
+    'api.apps.ApiConfig',
 ]
 
 
