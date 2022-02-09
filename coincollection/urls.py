@@ -10,5 +10,5 @@ urlpatterns = [
     path('charts/', views.coin_charts, name='coin-charts'),
     path('country/<int:id>/<slug:slug>', views.country, name='country'),
     path('category/<slug:slug>/<int:id>', views.coin_detail, name='coin-detail'),
-    path('api/', include('api.urls'), name='prod-api'),
+    path('api/', include('api.urls')),
 ]
