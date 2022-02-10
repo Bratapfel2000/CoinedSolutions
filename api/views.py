@@ -3,30 +3,14 @@ from blog.models import Post
 from .serializers import PostSerializer
 from coincollection.models import Product
 from .serializers import CoinProductSerializer
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from .permissions import IsAuthorOrReadOnly
 
 class PostAPIView(generics.ListAPIView):
-	permission_classes = (IsAuthenticatedOrReadOnly,)
+	permission_classes = (IsAuthorOrReadOnly,)
 	queryset = Post.objects.all()
 	serializer_class = PostSerializer
-	print("")
-	print("")	
-	print("")
-
-	print(">>>>>", serializer_class.errors)
-	print("")
-	print("")
-	print("")
 
 class CoinProductAPIView(generics.ListAPIView):
-	permission_classes = (IsAuthenticatedOrReadOnly,)
+	permission_classes = (IsAuthorOrReadOnly,)
 	queryset = Product.objects.all()
 	serializer_class = CoinProductSerializer
-	print("")
-	print("")	
-	print("")
-
-	print(">>>>>", serializer_class.errors)
-	print("")
-	print("")
-	print("")
