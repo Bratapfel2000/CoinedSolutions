@@ -13,7 +13,7 @@ class PostAPIView(generics.ListAPIView):
 	print("")	
 	print("")
 
-	print(">>>>>", serializer.errors)
+	print(">>>>>", serializer_class.errors)
 	print("")
 	print("")
 	print("")
@@ -26,7 +26,7 @@ class CoinProductAPIView(generics.ListAPIView):
 	print("")	
 	print("")
 
-	print(">>>>>", serializer.errors)
+	print(">>>>>", serializer_class.errors)
 	print("")
 	print("")
 	print("")
