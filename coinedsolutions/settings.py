@@ -73,8 +73,8 @@ LOGGING = {
 
 
 
-#ALLOWED_HOSTS = ['coinedsolutions.herokuapp.com']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['coinedsolutions.herokuapp.com']
+#ALLOWED_HOSTS = ['*']
 
 
 # Application definition
