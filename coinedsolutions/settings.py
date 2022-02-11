@@ -29,6 +29,15 @@ DEBUG = False
 
 
 
+import logging.config
+from django.utils.log import DEFAULT_LOGGING
+
+# Disable Django's logging setup
+LOGGING_CONFIG = None
+
+LOGLEVEL = os.environ.get('LOGLEVEL', 'info').upper()
+
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
