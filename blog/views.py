@@ -15,6 +15,7 @@ from django.urls import reverse_lazy
 from rest_framework import generics
 from .serializers import PostSerializer
 from .permissions import IsAuthorOrReadOnly
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 
 def home(request):
