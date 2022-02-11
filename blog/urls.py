@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, UserPostListView, AddCommentView
+from .views import PostAPIView
 
 urlpatterns = [
     #path('', views.home, name='blog-home'),
@@ -15,4 +16,5 @@ urlpatterns = [
     path('about/', views.about, name='blog-about'),
     path('contact/', views.contact, name='blog-contact'),
     path('sitemap/', views.sitemap, name='blog-sitemap'),
+    path('', PostAPIView.as_view()),
 ]

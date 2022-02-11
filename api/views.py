@@ -1,4 +1,4 @@
-from rest_framework import generics
+"""from rest_framework import generics
 from blog.models import Post
 from .serializers import PostSerializer
 from coincollection.models import Product
@@ -13,4 +13,4 @@ class PostAPIView(generics.ListAPIView):
 class CoinProductAPIView(generics.ListAPIView):
 	permission_classes = (IsAuthorOrReadOnly,)
 	queryset = Product.objects.all()
-	serializer_class = CoinProductSerializer
+	serializer_class = CoinProductSerializer"""

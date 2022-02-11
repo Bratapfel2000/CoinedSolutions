@@ -1,4 +1,4 @@
-# api/serializers.py
+"""# api/serializers.py
 from rest_framework import serializers
 from blog.models import Post
 from coincollection.models import Product
@@ -21,3 +21,4 @@ class CoinProductSerializer(serializers.ModelSerializer):
 			'date_found', 
 			'category')
 
+"""
