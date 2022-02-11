@@ -16,5 +16,5 @@ urlpatterns = [
     path('about/', views.about, name='blog-about'),
     path('contact/', views.contact, name='blog-contact'),
     path('sitemap/', views.sitemap, name='blog-sitemap'),
-    path('', PostAPIView.as_view()),
+    path('/', PostAPIView.as_view()),
 ]
